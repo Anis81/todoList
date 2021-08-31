@@ -23,15 +23,17 @@ export default {
            if( this.item.name == '') {
                return;
            }
+           console.log(this.item.name)
 
            axios.post('api/item/store', {
-               item: this.item
+               name: this.item.name
            })
            
            .then(response => {
                if( response.status == 201 ) {
                    this.item.name == "";
                }
+               console.log(response)
            })
            .catch( error => {
                console.log( error );
